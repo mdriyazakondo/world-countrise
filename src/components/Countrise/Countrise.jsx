@@ -30,12 +30,12 @@ const Countrise = ({ countrisePromise }) => {
       <h2 className="py-4 text-2xl font-semibold text-gray-600 text-center">
         All Country ({isShearch.length})
       </h2>
-      <div>
+      {/* <div>
         {visitedCountrise.map((visited, index) =>
           // console.log(visited)
           <VisitedList key={index} visited={visited} />
         )}
-      </div>
+      </div> */}
       <p className="text-xl font-medium text-center text-gray-600">
         Total Countrise Visited: {visitedCountrise.length}
       </p>
