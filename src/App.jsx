@@ -7,7 +7,7 @@ const App = () => {
   ).then((res) => res.json());
   return (
     <div>
-      <Suspense fallback="Loading.........">
+      <Suspense fallback={<p>Loading.........</p>}>
         <Countrise countrisePromise={countrisePromise} />
       </Suspense>
     </div>
