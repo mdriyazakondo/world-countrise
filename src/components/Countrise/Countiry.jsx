@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Countiry = ({ country }) => {
+const Countiry = ({ id, country, handleVisitedCountrise }) => {
   // const {
   //   name,
   //   ccn3,
@@ -27,6 +28,15 @@ const Countiry = ({ country }) => {
   // const { common, official } = continents;
   // const { common, official } = flags;
 
+  const [visited, setVisited] = useState(false);
+
+  const handleVisited = () => {
+    if (!visited) {
+      setVisited(true);
+      handleVisitedCountrise(country);
+    }
+  };
+
   return (
     <div>
       <div className="p-4 shadow bg-gray-100">
@@ -38,9 +48,20 @@ const Countiry = ({ country }) => {
 
         <h4 className="text-xl font-semibold">{country.name.common}</h4>
         <p>
-          Area: {country.area.area}{" "}
-          {country.area.area > 300000 ? "Big Country" : "Small Country"}
+          Area: {country.area.area}
+          {country.area.area > 300000 ? " Big Country" : " Small Country"}
         </p>
+        <div className="flex items-center gap-4 justify-between">
+          <button className="py-1.5 bg-green-500  px-6 rounded-md mt-9 cursor-pointer text-white">
+            <Link to={`/country/${id}`}>Show Detalis...</Link>
+          </button>
+          <button
+            onClick={handleVisited}
+            className="py-1.5 bg-green-500  px-6 rounded-md mt-9 cursor-pointer text-white"
+          >
+            {visited ? "Visited" : "Not Visited"}
+          </button>
+        </div>
       </div>
     </div>
   );
